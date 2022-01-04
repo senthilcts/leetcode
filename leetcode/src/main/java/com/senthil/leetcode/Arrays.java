@@ -14,4 +14,24 @@ public class Arrays {
 		}
 		return Math.max(max, count);
 	}
+	
+	public int findEvenNumDigits(int[] nums) {
+//		int evenDigits = 0;
+//		for(int val : nums) {
+//			int digits = 0;
+//			do {
+//				 digits++;
+//				 val = val/10;
+//			} while(val != 0);
+//			if(digits % 2 == 0) {
+//				evenDigits++;
+//			}
+//		}
+//		return evenDigits;
+		int res = 0;
+        for(var num: nums) {
+            res += (int)Math.log10(num)&1;    
+        }
+        return res;
+	}
 }
