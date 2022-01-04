@@ -8,7 +8,7 @@ public class App
 {
     public static void main( String[] args )
     {
-    	Arrays a = new Arrays();
+    	ArraysTest a = new ArraysTest();
     	/*
     	 * Max Consecutive Ones
     	 * Given a binary array nums, return the maximum number of consecutive 1's in the array.
@@ -39,6 +39,18 @@ public class App
         int evenDigits = a.findEvenNumDigits(digits);
         System.out.println(evenDigits);
         
+        /*
+         *   Squares of a Sorted Array
+         *   Given an integer array nums sorted in non-decreasing order, return an array of the squares of each number sorted in non-decreasing order.
+         *   Example 1:
+				Input: nums = [-4,-1,0,3,10]
+				Output: [0,1,9,16,100]
+				Explanation: After squaring, the array becomes [16,1,0,9,100].
+				After sorting, it becomes [0,1,9,16,100].
+         */
+        int[] nums1 = {-4,-1,0,3,10};
+        int[] sorted = a.sortedSquares(nums1);
+        System.out.println(sorted);
     }
     
 }
