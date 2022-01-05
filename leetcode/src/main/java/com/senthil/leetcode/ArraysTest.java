@@ -64,4 +64,51 @@ public class ArraysTest {
         }
         return results;
     }
+	public int[] duplicateZeros(int[] nums) {
+		for(int i = 0; i < nums.length; i++) {
+			if(nums[i] == 0) {
+				for(int j = nums.length - 1; j > i; j--) {
+					nums[j] = nums[j-1];
+				}
+				i++;
+			}
+		}
+		return nums;
+	}
+	
+	public void duplicateZerosES(int[] arr) {
+        int zeroCount = 0;
+        int length = arr.length-1;
+        for(int i = 0; i <= length - zeroCount; i++) {
+            if(arr[i] == 0) {
+                if(i == length - zeroCount){
+                    arr[length] = 0;
+                    length -= 1;
+                    break;
+                }
+                zeroCount++;
+            }
+        }
+        
+        int last = length - zeroCount;
+        
+        for(int i = last; i >= 0; i--) {
+            if(arr[i] == 0) {
+                arr[i + zeroCount] = 0;
+                zeroCount--;
+                arr[i + zeroCount] = 0;
+            } else {
+                arr[i + zeroCount] = arr[i];
+            }
+        }
+        
+        
+    }
+	
+	public void merge(int[] nums1, int m, int[] nums2, int n) {
+        for(int i = 0; i < n; i++) {
+        	nums1[i+m] = nums2[i];
+        }
+        Arrays.sort(nums1);
+    }
 }
