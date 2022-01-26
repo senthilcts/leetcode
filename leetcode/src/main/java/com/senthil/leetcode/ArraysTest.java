@@ -111,4 +111,113 @@ public class ArraysTest {
         }
         Arrays.sort(nums1);
     }
+	
+	/*
+	 * Remove Element
+	 * Input: nums = [3,2,2,3], val = 3
+		Output: 2, nums = [2,2,_,_]
+		Explanation: Your function should return k = 2, with the first two elements of nums being 2.
+		It does not matter what you leave beyond the returned k (hence they are underscores).
+	 */
+	
+	public int removeElement(int[] nums, int val) {
+		int count = 0;
+		for(int j = 0; j < nums.length; j++) {
+			if(nums[j] != val) {
+				nums[count] = nums[j];
+				count++;
+			}
+		}
+        return count;
+    }
+	public int removeDuplicates(int[] nums) {
+		if (nums.length == 0) return 0;
+	    int i = 0;
+	    for (int j = 1; j < nums.length; j++) {
+	        if (nums[j] != nums[i]) {
+	            i++;
+	            nums[i] = nums[j];
+	        }
+	    }
+	    return i + 1;
+    }
+	/*
+	 *  Replace Elements with Greatest Element on Right Side
+	 *  Given an array arr, replace every element in that array with the greatest element among the elements to its right, and replace the last element with -1.
+
+After doing so, return the array.
+
+ 
+
+Example 1:
+
+Input: arr = [17,18,5,4,6,1]
+Output: [18,6,6,6,1,-1]
+Explanation: 
+- index 0 --> the greatest element to the right of index 0 is index 1 (18).
+- index 1 --> the greatest element to the right of index 1 is index 4 (6).
+- index 2 --> the greatest element to the right of index 2 is index 4 (6).
+- index 3 --> the greatest element to the right of index 3 is index 4 (6).
+- index 4 --> the greatest element to the right of index 4 is index 5 (1).
+- index 5 --> there are no elements to the right of index 5, so we put -1.
+	 */
+	public int[] replaceElements(int[] arr) {
+		int size = arr.length;
+		 
+        // Initialize the next greatest element
+        int max_from_right =  arr[size-1];
+ 
+        // The next greatest element for the rightmost
+        // element is always -1
+        arr[size-1] = -1;
+ 
+        // Replace all other elements with the next greatest
+        for (int i = size-2; i >= 0; i--)
+        {
+            // Store the current element (needed later for
+            // updating the next greatest element)
+            int temp = arr[i];
+ 
+            // Replace current element with the next greatest
+            arr[i] = max_from_right;
+ 
+            // Update the greatest element, if needed
+            if(max_from_right < temp)
+            max_from_right = temp;
+        }
+        return arr;
+    }
+	/*
+	 * Sort Array By Parity
+	 * Given an integer array nums, move all the even integers at the beginning of the array followed by all the odd integers.
+
+Return any array that satisfies this condition.
+
+ 
+
+Example 1:
+
+Input: nums = [3,1,2,4]
+Output: [2,4,3,1]
+Explanation: The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
+Example 2:
+
+Input: nums = [0]
+Output: [0]
+	 */
+	public int[] sortArrayByParity(int[] A) {
+		int[] ans = new int[A.length];
+        int t = 0;
+
+        for (int i = 0; i < A.length; ++i)
+            if (A[i] % 2 == 0)
+                ans[t++] = A[i];
+
+        for (int i = 0; i < A.length; ++i)
+            if (A[i] % 2 == 1)
+                ans[t++] = A[i];
+
+        return ans;
+        
+    }
 }
