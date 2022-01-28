@@ -220,4 +220,76 @@ Output: [0]
         return ans;
         
     }
+	
+	public static int[] twoNumberSum(int[] array, int targetSum) {
+	    // Write your code here.
+		for(int i = 0; i < array.length - 1; i++) {
+			for(int j = i + 1; j < array.length; j++) {
+				if(array[i] + array[j] == targetSum) {
+					return new int[] {array[i], array[j]};
+				}	
+			}
+		}
+	    return new int[0];
+	  }
+	
+	public static boolean isValidSubsequence(List<Integer> array, List<Integer> sequence) {
+	    // Write your code here.
+		int seqInx = 0;
+		for(var val : array) {
+			if(seqInx == sequence.size()) {
+				break;
+			}
+			if(sequence.get(seqInx).equals(val)) {
+				seqInx++;
+			}
+		}
+		
+	    return seqInx == sequence.size();
+	  }
+	
+	public int[] sortedSquaredArray(int[] array) {
+	    // Write your code here.
+			if(array.length ==  0) {
+				return new int[] {};	
+			}
+			for(int i = 0; i < array.length; i++) {
+				array[i] = array[i] * array[i];
+			}
+	    Arrays.sort(array);
+	    return array;
+	  }
+	public String tournamentWinner(ArrayList<ArrayList<String>> competitions, ArrayList<Integer> results) {
+		// Write your code here.
+		HashMap<String, Integer> scores = new HashMap<String, Integer>();
+		int index = 0;
+		for(var teamArray : competitions) {
+			String homeTeam = teamArray.get(0);
+			String outTeam = teamArray.get(1);
+			if(results.get(index++) == 1) {
+				//Home team won
+				if(scores.containsKey(homeTeam) == true) {
+					scores.put(homeTeam, scores.get(homeTeam) + 3);
+				} else {
+					scores.put(homeTeam, 3);
+				}
+			} else {
+				//Out team own
+				if(scores.containsKey(outTeam) == true) {
+					scores.put(outTeam, scores.get(outTeam) + 3);
+				} else {
+					scores.put(outTeam, 3);
+				}
+			}
+		}
+		Map.Entry<String, Integer> maxEntry = null;
+		for (Map.Entry<String, Integer> entry : scores.entrySet())
+		{
+		    if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+		    {
+		        maxEntry = entry;
+		    }
+		}
+		return maxEntry.getKey();
+		}
 }

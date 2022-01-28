@@ -10,3 +10,7 @@ leetcode/target/classes/com/senthil/leetcode/App.class
 leetcode/target/classes/META-INF/maven/com.senthil/leetcode/pom.properties
 leetcode/target/test-classes/com/senthil/leetcode/AppTest.class
 leetcode/target/classes/com/senthil/leetcode/ArraysTest.class
+leetcode/target/classes/com/senthil/leetcode/AlgoExpert$BinaryTree.class
+leetcode/target/classes/com/senthil/leetcode/AlgoExpert$BST.class
+leetcode/target/classes/com/senthil/leetcode/AlgoExpert.class
+leetcode/target/classes/com/senthil/leetcode/App.class

@@ -1,5 +1,10 @@
 package com.senthil.leetcode;
 
+import java.util.ArrayList;
+
+import java.util.*;
+
+
 /**
  * Hello world!
  *
@@ -8,6 +13,12 @@ public class App
 {
     public static void main( String[] args )
     {
+    	
+    	int x = 20;
+    	int y = 30;
+    	
+    	x = x ^ y ^ (y = x);
+    	
     	ArraysTest a = new ArraysTest();
     	/*
     	 * Max Consecutive Ones
@@ -81,6 +92,29 @@ public class App
         int[] nums4 = {2,5,6};
         int m = 3, n = 3;
         a.merge(nums3, m, nums4, n);
+        List<Integer> array = Arrays.asList(5, 1, 22, 25, 6, -1, 8, 10);
+        List<Integer> sequence = Arrays.asList(1, 6, -1, -1);
+        a.isValidSubsequence(array, sequence);
+        
+        
+        ArrayList<ArrayList<String>> competitions = new ArrayList<ArrayList<String>>();
+        ArrayList<String> team = new ArrayList<String>();
+        team.add("HTML");
+        team.add("C#");
+        competitions.add(team);
+        team = new ArrayList<String>();
+        team.add("C#");
+        team.add("Python");
+        competitions.add(team);
+        team = new ArrayList<String>();
+        team.add("Python");
+        team.add("HTML");
+        competitions.add(team);
+        ArrayList<Integer> results = new ArrayList<Integer>();
+        results.add(0);
+        results.add(0);
+        results.add(1);
+        a.tournamentWinner(competitions, results);
     }
     
 }
